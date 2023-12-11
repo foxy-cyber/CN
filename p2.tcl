@@ -40,5 +40,45 @@ proc plotWindow {tcpSource file} {
     set now [$ns now]
     set cwd0 [$tcpSource set cwnd_]
     puts $file "$now $cwd0
-    $ns at [expr ]
+    $ns at [expr $now+$time] "plotWindow $tcpSource $file"
+}
+proc finish { } {
+        global ns tf nf cwind
+        $ns flush-trace
+        close $tf 
+        close $nf 
+        puts "Running nam..."
+        exec nam prog2.nam &
+        exec xgraph win2.tr &
+        exit 0
+}
+
+BEGIN{
+
+last=0
+tcp_sz=0
+cbr_sz=0
+tot_sz=0
+}
+{
+    action=$1;
+    time=$2;
+    from=$3;
+    to=$4;
+    type=$5;
+    pktsize=$6;
+    flow_id=$8;
+    src=$9;
+    dst=$10;
+    seq_no=$11;
+    packet_id=$12;
+    if(type=="tcp" && action="r" && to=="3")
+    tcp_sz+=pktsize
+    if(type=="cbr" && action="r" && to =="3")
+    cbr_sz+=pktsize
+tot_sz+=pktsize
+}
+END {
+print time, (tcp_sz*8/1000000)
+print time, (tcp_sz*8/1000000),(tot_sz*8/10000000)
 }

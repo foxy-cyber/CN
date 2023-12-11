@@ -8,14 +8,12 @@ $ns namtrace-all $nf
 
 set s [$ns node]
 set c [$ns node]
-
 $ns color 1 Blue
 
 $s label "Server"
 $c label "Client"
 
 $ns duplex-link $s $c 10Mb 10ms DropTail
-
 $ns duplex-link-op $s $c orient right
 
 set tcp0 [new Agent/TCP]
@@ -42,7 +40,8 @@ proc finish {} {
 	exec awk -f p4transfer.awk p4.tr &
 	exec awk -f p4convert.awk p4.tr > convert.tr &
 	exec xgraph convert.tr -geometry 800*400 -t "bytes_received_at_client" -x "time_in_secs" -y "bytes_in_bps" &
-	}
+}
+
 $ns at 0.01 "$ftp0 start"
 $ns at 15.0 "$ftp0 stop"
 $ns at 15.1 "finish"
@@ -53,16 +52,16 @@ $ns run
 BEGIN {
 	count=0;
 	time=0;
-        total_bytes_sent =0;
-        total_bytes_received=0;
+    total_bytes_sent =0;
+    total_bytes_received=0;
         
 }
 {
 	if ( $1 == "r" &&  $4 == 1 && $5 == "tcp")
-				total_bytes_received += $6;
+		total_bytes_received += $6;
 
-        if($1 == "+" &&  $3 == 0 && $5 == "tcp")
-				total_bytes_sent +=  $6;
+    if($1 == "+" &&  $3 == 0 && $5 == "tcp")
+		total_bytes_sent +=  $6;
 } 
 END {
        system("clear");

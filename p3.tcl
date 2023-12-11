@@ -41,7 +41,6 @@ $ftp attach-agent $tcp
 
 $ns rtmodel-at 1.0 down $n1 $n4
 $ns rtmodel-at 3.0 up $n1 $n4
-
 $ns at 0.1 "$ftp start"
 $ns at 12.0 "finish"
 
@@ -52,16 +51,16 @@ proc plotWindow { tcpSource file } {
     set cwnd [$tcpSource set cwnd_]
     puts $file "$now $cwnd"
     $ns at [expr $now+$time] "plotWindow $tcpSource $file"
-    }
-    $ns at 1.0 "plotWindow $tcp $cwind"
-    proc finish { } {
-        global ns tf nf cwind
-        $ns flush-trace
-        close $tf 
-        close $nf 
-        exec nam ex4.nam &
-        exec xgraph win4.tr &
-        exit 0
+}
+$ns at 1.0 "plotWindow $tcp $cwind"
+proc finish { } {
+    global ns tf nf cwind
+    $ns flush-trace
+    close $tf 
+    close $nf 
+    exec nam ex4.nam &
+    exec xgraph win4.tr &
+    exit 0
 }
 $ns run
 
