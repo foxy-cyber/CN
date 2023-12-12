@@ -39,7 +39,7 @@ proc plotWindow {tcpSource file} {
     set time 0.01 
     set now [$ns now]
     set cwd0 [$tcpSource set cwnd_]
-    puts $file "$now $cwd0
+    puts $file "$now $cwd0"
     $ns at [expr $now+$time] "plotWindow $tcpSource $file"
 }
 proc finish { } {
