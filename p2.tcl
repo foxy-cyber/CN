@@ -23,6 +23,8 @@ $ns attach-agent $n1 $tcp0
 set sink0 [new Agent/TCPSink]
 $ns attach-agent $n6 $sink0
 $ns connect $tcp0 $sink0
+set ftp [new Application/FTP]
+$ftp attach-agent $tcp0
 
 set tcp1 [new Agent/TCP]
 $ns attach-agent $n2 $tcp1
