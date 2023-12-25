@@ -51,16 +51,16 @@ $cbr2 attach-agent $udp1
 
 
 set revr1 [new Agent/Null]
-$ns attach-agent $n5 $revr1
-$ns at 1.0 "$n5 join-group $revr1 $group1"
+$ns attach-agent $n2 $revr1
+$ns at 1.0 "$n2 join-group $revr1 $group1"
 
 set revr2 [new Agent/Null]
-$ns attach-agent $n6 $revr2
-$ns at 1.5 "$n6 join-group $revr2 $group1"
+$ns attach-agent $n3 $revr2
+$ns at 1.5 "$n3 join-group $revr2 $group1"
 
 set revr3 [new Agent/Null]
-$ns attach-agent $n7 $revr3
-$ns at 2.0 "$n7 join-group $revr3 $group1"
+$ns attach-agent $n4 $revr3
+$ns at 2.0 "$n4 join-group $revr3 $group1"
 
 
 set revr4 [new Agent/Null]
@@ -75,9 +75,9 @@ set revr6 [new Agent/Null]
 $ns attach-agent $n7 $revr6
 $ns at 3.5 "$n7 join-group $revr6 $group2"
 
-$ns at 4.0 "$n5 leave-group $revr1 $group1"
-$ns at 4.5 "$n6 leave-group $revr2 $group1"
-$ns at 5.0 "$n7 leave-group $revr3 $group1"
+$ns at 4.0 "$n2 leave-group $revr1 $group1"
+$ns at 4.5 "$n3 leave-group $revr2 $group1"
+$ns at 5.0 "$n4 leave-group $revr3 $group1"
 
 $ns at 5.5 "$n5 leave-group $revr4 $group2"
 $ns at 6.0 "$n6 leave-group $revr5 $group2"
@@ -100,5 +100,17 @@ close $fd
 exec nam mcast.nam &
 exit 0
 }
+$n0 label "Source 1"
+$udp0 set fid_ 1
+$n1 label "Source 2"
+$udp1 set fid_ 2
+$ns color 1 red 
+$ns color 1 green
+$n5 label "Receiver 1"
+$n5 color blue
+$n6 label "Receiver 2"
+$n5 color blue
+$n7 label "Receiver 3"
+$n7 color blue
 
 $ns run
