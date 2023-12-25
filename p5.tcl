@@ -105,7 +105,7 @@ $udp0 set fid_ 1
 $n1 label "Source 2"
 $udp1 set fid_ 2
 $ns color 1 red 
-$ns color 1 green
+$ns color 2 green
 $n5 label "Receiver 1"
 $n5 color blue
 $n6 label "Receiver 2"
