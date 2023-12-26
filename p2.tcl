@@ -54,7 +54,7 @@ proc finish { } {
         exec xgraph win2.tr &
         exit 0
 }
-
+$ns run
 BEGIN{
 
 last=0
