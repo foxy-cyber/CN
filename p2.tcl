@@ -1,5 +1,5 @@
 set ns [new Simulator]
-set tf [open prog2.tr]
+set tf [open prog2.tr w]
 $ns trace-all $tf
 set nf [open prog2.nam w]
 $ns namtrace-all $nf
