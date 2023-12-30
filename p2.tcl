@@ -55,8 +55,8 @@ proc finish { } {
         exit 0
 }
 $ns run
-BEGIN{
 
+BEGIN{
 last=0
 tcp_sz=0
 cbr_sz=0
