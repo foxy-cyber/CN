@@ -2,7 +2,6 @@ set val(chan) Channel/WirelessChannel
 set val(prop) Propagation/TwoRayGround
 set val(netif) Phy/WirelessPhy
 set val(mac) Mac/802_11
-#set val(ifq) Queue/DropTail/PriQueue
 set val(ifq) CMUPriQueue
 set val(ll) LL
 set val(ant) Antenna/OmniAntenna
