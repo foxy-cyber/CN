@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35894b02b3a18684f842aecae5dc07428ef36c91
 set val(chan) Channel/WirelessChannel
 set val(prop) Propagation/TwoRayGround
 set val(netif) Phy/WirelessPhy
