@@ -9,10 +9,10 @@ set val(x) 500
 set val(y) 500
 set val(ifqlen) 50
 set val(nn) 25
-set val(stop) 100.0
-set val(sc) "/home/kali/Desktop/ns-allinone-2.35/mob"
-set val(cp) "/home/kali/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen/tcp-25-8"
+set val(sc) "/home/student/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen/setdest/mob"
+set val(cp) "/home/student/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen/static"
 set val(rp) AODV
+set val(stop) 100.0
 set ns_ [new Simulator]
 set tracefd [open 003.tr w]
 $ns_ trace-all $tracefd
