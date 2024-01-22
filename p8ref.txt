@@ -1,0 +1,23 @@
+Download ns-allinone-2.35.tar.gz and extract in Desktop
+ student@student-HP-285-Pro-G2-MT:~$ cd Desktop
+student@student-HP-285-Pro-G2-MT:~/Desktop$ cd ns-allinone-2.35/ns-2.35
+student@student-HP-285-Pro-G2-MT:~/Desktop/ns-allinone-2.35/ns-2.35$ cd indep-utils/cmu-scen-gen/
+student@student-HP-285-Pro-G2-MT:~/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ ns cbrgen.tcl
+ When configured, ns found the right version of tclsh in /usr/bin/tclsh8.6
+but it doesn't seem to be there anymore, so ns will fall back on running the first tclsh in your path. The wrong version of tclsh may break the test suites. Reconfigure and rebuild ns if this is a problem.
+usage: cbrgen.tcl [-type cbr|tcp] [-nn nodes] [-seed seed] [-mc connections] [-rate rate]
+student@student-HP-285-Pro-G2-MT:~/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 10 >static
+student@student-HP-285-Pro-G2-MT:~/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ ^C
+student@student-HP-285-Pro-G2-MT:~/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen$ cd setdest/
+student@student-HP-285-Pro-G2-MT:~/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen/setdest$ set setdest
+student@student-HP-285-Pro-G2-MT:~/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen/setdest$ setdest
+usage:
+<original 1999 CMU version (version 1)>
+ setdest    -v <1> -n <nodes> -p <pause time> -M <max speed>
+   	 -t <simulation time> -x <max X> -y <max Y>
+OR
+<modified 2003 U.Michigan version (version 2)>
+ setdest    -v <2> -n <nodes> -s <speed type> -m <min speed> -M <max speed>
+   	 -t <simulation time> -P <pause type> -p <pause time> -x <max X> -y <max Y>
+   	 (Refer to the script files make-scen.csh and make-scen-steadystate.csh for detail.)
+student@student-HP-285-Pro-G2-MT:~/Desktop/ns-allinone-2.35/ns-2.35/indep-utils/cmu-scen-gen/setdest$ setdest -v 1 -n 25 -p 10 -M 10 -t 100 -x 500 -y 500 >mob

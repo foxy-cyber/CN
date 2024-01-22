@@ -63,3 +63,9 @@ $ns_ at $val(stop) "puts \" NS EXITING...\"; $ns_ halt"
 
 puts "Starting simulation"
 $ns_ run
+
+
+#cmu-scen-gen$ ns cbrgen.tcl -type tcp -nn 25 -seed 1 -mc 10 -rate 10 >static
+#cd setdest/
+#cmu-scen-gen/setdest$ set setdest
+#setdest -v 1 -n 25 -p 10 -M 10 -t 100 -x 500 -y 500 >mob
